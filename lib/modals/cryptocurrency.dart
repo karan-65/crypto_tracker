@@ -32,19 +32,20 @@ class cryptocurrency {
 
   factory cryptocurrency.fromJson(Map<String, dynamic> map) {
     return cryptocurrency(
-        ath: map["ath"],
-        atl: map["atl"],
-        circulatingsupply: map["circulating_supply"],
-        currentprice: map["current_price"],
-        high24: map["high_24h"],
+        ath: double.parse(map["ath"].toString()),
+        atl: double.parse(map["atl"].toString()),
+        circulatingsupply: double.parse(map["circulating_supply"].toString()),
+        currentprice: double.parse(map["current_price"].toString()),
+        high24: double.parse(map["high_24h"].toString()),
         id: map["id"],
         image: map["image"],
-        low24: map["low_24h"],
-        marketcap: map["market_cap"],
+        low24: double.parse(map["low_24h"].toString()),
+        marketcap: double.parse(map["market_cap"].toString()),
         marketcaprank: map["market_cap_rank"],
         name: map["name"],
-        pricechange24: map["price_change_24h"],
-        pricechangepercentage24: map["price_change_percentage_24h"],
+        pricechange24: double.parse(map["price_change_24h"].toString()),
+        pricechangepercentage24:
+            double.parse(map["price_change_percentage_24h"].toString()),
         symbol: map["symbol"]);
   }
 }
