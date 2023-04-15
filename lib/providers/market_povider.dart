@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:crypto_tracker/modals/api.dart';
 import 'package:crypto_tracker/modals/cryptocurrency.dart';
@@ -12,7 +13,7 @@ class marketprovider with ChangeNotifier {
     fetchdata();
   }
 
-  void fetchdata() async {
+  Future<void> fetchdata() async {
     List<dynamic> _markets = await api.getmarkets();
 
 //to remove the duplicates we made this temp list
@@ -24,5 +25,11 @@ class marketprovider with ChangeNotifier {
     markets = temp;
     isloading = false;
     notifyListeners();
+  }
+
+  cryptocurrency fetchcryptobyid(String id) {
+    cryptocurrency crypto =
+        markets.where((element) => element.id == id).toList()[0];
+    return crypto;
   }
 }
