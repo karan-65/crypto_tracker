@@ -13,6 +13,7 @@ class cryptocurrency {
   double? circulatingsupply;
   double? atl;
   double? ath;
+  bool isfav = false;
 
   cryptocurrency(
       {required this.ath,

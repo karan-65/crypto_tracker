@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,8 +16,7 @@ class markets extends StatefulWidget {
 class _marketsState extends State<markets> {
   @override
   Widget build(BuildContext context) {
-    return Expanded(child:
-        Consumer<marketprovider>(builder: (context, marketprovider, child) {
+    return Consumer<marketprovider>(builder: (context, marketprovider, child) {
       if (marketprovider.isloading == true) {
         return Center(
           child: CircularProgressIndicator(),
@@ -48,7 +48,38 @@ class _marketsState extends State<markets> {
                     backgroundColor: Colors.white,
                     backgroundImage: NetworkImage(currentcrypto.image!),
                   ),
-                  title: Text(currentcrypto.name!),
+                  title: Row(
+                    children: [
+                      Flexible(
+                          child: Text(
+                        currentcrypto.name!,
+                        overflow: TextOverflow.ellipsis,
+                      )),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      (currentcrypto.isfav == false)
+                          ? GestureDetector(
+                              onTap: () {
+                                marketprovider.addfavorites(currentcrypto);
+                              },
+                              child: Icon(
+                                CupertinoIcons.heart,
+                                size: 18,
+                              ),
+                            )
+                          : GestureDetector(
+                              onTap: () {
+                                marketprovider.removefav(currentcrypto);
+                              },
+                              child: Icon(
+                                CupertinoIcons.heart_fill,
+                                color: Colors.red,
+                                size: 18,
+                              ),
+                            )
+                    ],
+                  ),
                   subtitle: Text(currentcrypto.symbol!.toUpperCase()),
                   trailing: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -87,6 +118,6 @@ class _marketsState extends State<markets> {
           return Text("data not found");
         }
       }
-    }));
+    });
   }
 }
