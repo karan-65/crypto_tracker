@@ -105,7 +105,7 @@ class _detailpageState extends State<detailpage> {
                         "₹ " + currentcrypto.marketcap!.toStringAsFixed(4),
                         CrossAxisAlignment.start),
                     titleanddetail(
-                        "Market Cap Rank",
+                        "MarketCap Rank",
                         "# " + currentcrypto.marketcaprank!.toString(),
                         CrossAxisAlignment.end),
                   ],

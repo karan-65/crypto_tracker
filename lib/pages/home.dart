@@ -42,14 +42,14 @@ class _homepageState extends State<homepage> with TickerProviderStateMixin {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Welcome back",
+                "Welcome Back",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Crypto today",
+                    "Crypto Today",
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
                   ),
                   IconButton(
@@ -68,13 +68,13 @@ class _homepageState extends State<homepage> with TickerProviderStateMixin {
               TabBar(controller: viewcontoller, tabs: [
                 Tab(
                   child: Text(
-                    "marktets",
+                    "Markets",
                     style: Theme.of(context).textTheme.bodyText1,
                   ),
                 ),
                 Tab(
-                  child:
-                      Text("fav", style: Theme.of(context).textTheme.bodyText1),
+                  child: Text("Favorites",
+                      style: Theme.of(context).textTheme.bodyText1),
                 ),
               ]),
               Expanded(

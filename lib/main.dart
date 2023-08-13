@@ -15,11 +15,17 @@ void main() async {
   ));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   final String theme;
   MyApp({required this.theme});
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -28,7 +34,7 @@ class MyApp extends StatelessWidget {
           create: (context) => marketprovider(),
         ),
         ChangeNotifierProvider<Themeprovider>(
-          create: (context) => Themeprovider(theme),
+          create: (context) => Themeprovider(widget.theme),
         )
       ],
       child: Consumer<Themeprovider>(builder: (context, themeprovider, child) {
@@ -36,6 +42,7 @@ class MyApp extends StatelessWidget {
           themeMode: themeprovider.themeMode,
           theme: lighttheme,
           darkTheme: darktheme,
+          debugShowCheckedModeBanner: false,
           home: homepage(),
         );
       }),

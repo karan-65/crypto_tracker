@@ -1,3 +1,4 @@
+//it is the modal of the cryptocurrency 
 class cryptocurrency {
   String? id;
   String? name;
@@ -31,6 +32,7 @@ class cryptocurrency {
       required this.pricechangepercentage24,
       required this.symbol});
 
+//this method converts the json data 
   factory cryptocurrency.fromJson(Map<String, dynamic> map) {
     return cryptocurrency(
         ath: double.parse(map["ath"].toString()),
