@@ -1,6 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
-
 import 'package:crypto_tracker/modals/api.dart';
 import 'package:crypto_tracker/modals/cryptocurrency.dart';
 import 'package:crypto_tracker/modals/localstorage.dart';
